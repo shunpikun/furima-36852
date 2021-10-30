@@ -241,7 +241,7 @@
                 <mxCell id="265" value="prefecture_id" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" parent="264" vertex="1">
                     <mxGeometry width="110" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="266" value="string" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" parent="264" vertex="1">
+                <mxCell id="266" value="integer" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" parent="264" vertex="1">
                     <mxGeometry x="110" width="70" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="267" value="null: false" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" parent="264" vertex="1">
