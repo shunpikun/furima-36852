@@ -5,7 +5,7 @@
 | Column                 | Type       | Options             |
 | ---------------------- | ---------- | ------------------- |
 | nickname               | string     | null: false         |
-| email                  | string     | null: false         |
+| email                  | string     | unique: true        |
 | encrypted_password     | string     | null: false         |
 | first_name             | string     | null: false         |
 | last_name              | string     | null: false         |
@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_one :order
+- has_many :orders
 
 ## items テーブル
 
@@ -24,13 +24,13 @@
 | ------------------------ | ------------- | ------------------------------ |
 | name                     | string        | null: false                    |
 | info                     | text          | null: false                    |
-| category_id              | references    | null: false, foreign_key: true |
-| condition_id             | references    | null: false, foreign_key: true |
-| delivery_fee_id          | references    | null: false, foreign_key: true |
-| prefecture_id            | references    | null: false, foreign_key: true |
-| scheduled_delivery_id    | references    | null: false, foreign_key: true |
+| category                 | integer       | null: false                    |
+| condition                | integer       | null: false                    |
+| delivery_fee             | integer       | null: false                    |
+| prefecture_id            | integer       | null: false                    |
+| scheduled_delivery       | integer       | null: false                    |
 | price                    | integer       | null: false                    |
-| user_id                  | references    | null: false, foreign_key: true |
+| user                     | references    | null: false, foreign_key: true |
 
 ### Association
 
@@ -41,8 +41,8 @@
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| user_id   | references | null: false, foreign_key: true |
-| item_id   | references | null: false, foreign_key: true |
+| user      | references | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -60,6 +60,7 @@
 | house_number      | string     | null: false                    |
 | building_name     | string     |                                |
 | phone_number      | integer    | null: false                    |
+| user              | references | null: false, foreign_key: true |
 
 ### Association 
 
