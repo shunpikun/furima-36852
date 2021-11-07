@@ -1,4 +1,4 @@
-function post (){
+window.addEventListener('load', () => {
   const priceInput = document.getElementById("item-price");
   priceInput.addEventListener("input", () => {
     const inputValue = priceInput.value;
@@ -7,6 +7,4 @@ function post (){
     const addProfitDom = document.getElementById("profit");
     addProfitDom.innerHTML = Math.floor(priceInput.value - Math.floor(priceInput.value * 0.1 ));
   })
-};
-
-window.addEventListener('load', post);
+});
