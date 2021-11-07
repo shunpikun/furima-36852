@@ -21,6 +21,7 @@ class Item < ApplicationRecord
   end
 
   has_one_attached :image
+  has_one :order
   belongs_to :category
   belongs_to :condition
   belongs_to :prefecture
