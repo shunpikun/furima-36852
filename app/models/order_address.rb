@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :order, :user_id, :item_id
+  attr_accessor :postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :order, :user_id, :item_id, :token
 
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
 
@@ -12,6 +12,7 @@ class OrderAddress
                              numericality: {only_integer: true, message: "is invalid. Input only number"}
     validates :user_id
     validates :item_id
+    validates :token
   end
 
   def save
