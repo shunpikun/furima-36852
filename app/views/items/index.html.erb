@@ -140,16 +140,18 @@
             </div>
           <% end %>
           <div class='item-info'>
-            <h3 class='item-name'>
-              <%= item.name %>
-            </h3>
-            <div class='item-price'>
-              <span><%= item.price %>円<br><%= item.delivery_fee.name %></span>
-              <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
+            <%= link_to item_path(item.id) do %>
+              <h3 class='item-name'>
+                <%= item.name %>
+              </h3>
+              <div class='item-price'>
+                <span><%= item.price %>円<br><%= item.delivery_fee.name %></span>
+                <div class='star-btn'>
+                  <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'>0</span>
+                </div>
               </div>
-            </div>
+            <% end %>
           </div>
         </li>
       <% end %>
