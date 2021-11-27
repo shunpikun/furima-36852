@@ -19,7 +19,7 @@ class Item < ApplicationRecord
     validates :scheduled_delivery_id
   end
 
-  has_one_attached :image
+  has_many_attached :images
   has_one :order
   belongs_to :category
   belongs_to :condition
