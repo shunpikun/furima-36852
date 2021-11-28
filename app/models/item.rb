@@ -8,10 +8,10 @@ class Item < ApplicationRecord
     validates :price
   end
 
-  validates_inclusion_of :price, in: 300..9_999_999, message: 'is out of setting range'
-  validates :price, numericality: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters.' }
+  validates_inclusion_of :price, in: 300..9_999_999, message: 'は¥300~¥9,999,999の範囲内で入力してください'
+  validates :price, numericality: { with: /\A[0-9]+\z/, message: 'は半角数値で入力してください' }
 
-  with_options numericality: { other_than: 1, message: "can't be blank" } do
+  with_options numericality: { other_than: 1, message: "を選択してください" } do
     validates :category_id
     validates :condition_id
     validates :delivery_fee_id
