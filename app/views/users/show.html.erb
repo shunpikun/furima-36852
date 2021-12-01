@@ -1,0 +1,37 @@
+<%= render "shared/second-header"%>
+
+<div class="AccountPage">
+  <div class="AccountPage-main">
+    <div class="AccountPage-title">
+      <h1 class="info-input-haedline">
+        マイページ
+      </h1>
+    </div><br>
+    <div class="Card-group">
+      <div class="Card-title">
+        <h2>カード情報</h2>
+      </div><br>
+      <div class="Card-info">
+        【カード番号】
+        <br>
+        <%= "**** **** **** " %>
+        <%# カード番号の下4桁を取得 %>
+
+        <br>
+        【有効期限】
+        <br>
+        <%= [:exp_month] %>
+        <%# 有効期限の「月」を取得 %>
+        /
+        <%= [:exp_year] %>
+        <%# 有効期限の「年」を取得 %>
+      </div>
+    </div><br>
+    <div class="AccountPage__form">
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "out-btn" %>
+      <br>
+      <%= link_to "トップページへ戻る", root_path, class: "root-btn" %>
+    </div>
+  </div>
+</div>
+<%= render "shared/second-footer"%>
