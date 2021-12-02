@@ -77,6 +77,11 @@
   align-items: flex-end;
 }
 
+.card-user {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+}
 
 .user-nickname {
   text-decoration: none;
