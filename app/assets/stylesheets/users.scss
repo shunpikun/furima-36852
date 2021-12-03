@@ -1,3 +1,17 @@
+.transaction-contents {
+  width: 100vw;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+}
+
+.transaction-main {
+  background-color: #FFF;
+  width: 70vw;
+  min-width: 450px;
+  padding: 10vh 10vw;
+}
+
 .info-input-haedline {
   text-align: center;
   font-weight: bold;
@@ -23,19 +37,10 @@
   text-align: center;
 }
 
-.out-btn {
-  background: #ea352d;
-  border: 1px solid #ea352d;
-  color: #fff;
-  width: 100%;
-  height: 50px;
-  font-size: 20px;
-  margin-bottom: 4vh;
-}
-
 .root-btn {
   background: #aaa;
+  border: 1px solid #aaa;
   color: #fff;
-  font-size: 20px;
+  padding: 15px 35%;
   text-decoration: none;
 }
