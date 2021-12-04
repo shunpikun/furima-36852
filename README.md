@@ -37,6 +37,8 @@
 
 - belongs_to :user
 - has_one :order
+- has_many :item_tag_relations
+- has_many :tags, through: :post_tag_relations
 
 ## orders テーブル
 
@@ -77,3 +79,28 @@
 ### Association
 
 - belongs_to :user
+
+## item_tag_relations テーブル
+
+| Colum          | Type       | Option            |
+| -------------- | ---------- | ----------------- |
+| item           | references | foreign_key: true |
+| tag            | references | foreign_key: true |
+
+## Association
+
+- belongs_to :item
+- belongs_to :tag
+
+## tags テーブル
+
+| Colum          | Type       | Option                        |
+| -------------- | ---------- | ----------------------------- |
+| tag_name       | string     | null: false, uniqueness: true |
+
+## Association
+
+- has_many :item_tag_relations
+- has_many :items, through: :item_tag_relations
+
+
