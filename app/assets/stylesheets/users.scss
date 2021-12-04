@@ -1,0 +1,46 @@
+.transaction-contents {
+  width: 100vw;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+}
+
+.transaction-main {
+  background-color: #FFF;
+  width: 70vw;
+  min-width: 450px;
+  padding: 10vh 10vw;
+}
+
+.info-input-haedline {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.Card-group {
+  text-align: center;
+}
+
+.Card-title {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.Card-info {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.AccountPage__form {
+  width: 100%;
+  text-align: center;
+}
+
+.root-btn {
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+  padding: 15px 35%;
+  text-decoration: none;
+}
