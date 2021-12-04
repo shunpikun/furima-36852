@@ -16,7 +16,6 @@
     </ul>
     <ul class='lists-right'>
       <% if user_signed_in? %>
-        <li><%= link_to "#{current_user.nickname}さんのクレジットカード情報を登録する", new_card_path, class: "card-user"%></li>
         <li><%= link_to "#{current_user.nickname}", user_path(current_user), class: "user-nickname" %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
       <% else %>

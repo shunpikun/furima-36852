@@ -1,7 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :order, :user_id, :item_id,
-                :token
+  attr_accessor :postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :order, :user_id, :item_id
 
   validates :prefecture_id, numericality: { other_than: 1, message: "を選択してください" }
 
@@ -13,7 +12,6 @@ class OrderAddress
                              numericality: { only_integer: true, message: 'は半角数値で入力してください' }
     validates :user_id
     validates :item_id
-    validates :token
   end
 
   def save
