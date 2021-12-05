@@ -7,7 +7,7 @@ app/assets/stylesheets/items/new.css %>
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with model: @item, local: true do |f| %>
+    <%= form_with model: @item_form, url: item_path(@item.id), method: :patch, local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -60,6 +60,11 @@ app/assets/stylesheets/items/new.css %>
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:condition_id, Condition.all, :id, :name, {}, {class:"select-box", id:"item-condition"}) %>
+        <div class="weight-bold-text">
+          商品のタグ
+          <span class="form-any">任意</span>
+        </div>
+        <%= f.text_field :tag_name, placeholder: 'タグを追加' %>
       </div>
     </div>
     <%# /商品の詳細 %>

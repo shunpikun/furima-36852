@@ -8,12 +8,13 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    @item_form = ItemForm.new
   end
 
   def create
-    @item = Item.new(item_params)
-    if @item.save
+    @item_form = ItemForm.new(item_form_params)
+    if @item_form.valid?
+      @item_form.save
       redirect_to root_path
     else
       render :new
@@ -25,10 +26,22 @@ class ItemsController < ApplicationController
 
   def edit
     redirect_to root_path if @item.order.present?
+
+    # @itemから情報をハッシュとして取り出し、@item_formとしてインスタンス生成する
+    item_attributes = @item.attributes
+    @item_form = ItemForm.new(item_attributes)
+    @item_form.tag_name = @item.tags&.first&.tag_name
   end
 
   def update
-    if @item.update(item_params)
+    # paramsの内容を反映したインスタンスを生成する
+    @item_form = ItemForm.new(item_form_params)
+
+    # 画像を選択し直していない場合は、既存の画像をセットする
+    @item_form.images ||= @item.images.blobs
+
+    if @item_form.valid?
+      @item_form.update(item_form_params, @item)
       redirect_to item_path(@item.id)
     else
       render :edit
@@ -41,9 +54,9 @@ class ItemsController < ApplicationController
 
   private
 
-  def item_params
-    params.require(:item).permit(:name, :info, :category_id, :condition_id, :delivery_fee_id, :prefecture_id,
-                                 :scheduled_delivery_id, :price, images: []).merge(user_id: current_user.id)
+  def item_form_params
+    params.require(:item_form).permit(:name, :info, :category_id, :condition_id, :delivery_fee_id, :prefecture_id,
+                                 :scheduled_delivery_id, :price, :tag_name, {images: []}).merge(user_id: current_user.id)
   end
 
   def set_item
