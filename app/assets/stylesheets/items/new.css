@@ -161,6 +161,14 @@
   padding-right: 10px;
 }
 
+.form-any {
+  background: #ccc;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 4px;
+}
+
 /* /販売価格 */
 
 /* 注意書き */
