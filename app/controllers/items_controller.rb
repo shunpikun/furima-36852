@@ -26,9 +26,11 @@ class ItemsController < ApplicationController
 
   def edit
     redirect_to root_path if @item.order.present?
+
     # @itemから情報をハッシュとして取り出し、@item_formとしてインスタンス生成する
     item_attributes = @item.attributes
     @item_form = ItemForm.new(item_attributes)
+    @item_form.tag_name = @item.tags&.first&.tag_name
   end
 
   def update

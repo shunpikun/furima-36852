@@ -9,6 +9,6 @@ class Item < ApplicationRecord
   belongs_to :delivery_fee
   belongs_to :scheduled_delivery
   belongs_to :user
-  has_many :item_tag_relations
-  has_many :tags, through: :item_tag_relations
+  has_many :item_tag_relations, dependent: :destroy
+  has_many :tags, through: :item_tag_relations, dependent: :destroy
 end
