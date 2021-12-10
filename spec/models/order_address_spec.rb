@@ -4,7 +4,7 @@ RSpec.describe OrderAddress, type: :model do
   describe '商品購入情報の保存' do
     before do
       @user = FactoryBot.create(:user)
-      @item = FactoryBot.create(:item)
+      @item = FactoryBot.create(:item_form)
       @order_address = FactoryBot.build(:order_address, user_id: @user.id, item_id: @item.id)
       sleep 0.1
     end
@@ -86,12 +86,6 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.item_id = nil
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Itemを入力してください")
-      end
-
-      it 'tokenが空では保存が出来ないこと' do
-        @order_address.token = nil
-        @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("クレジットカード情報を入力してください")
       end
     end
   end
