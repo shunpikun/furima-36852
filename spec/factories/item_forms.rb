@@ -8,6 +8,6 @@ FactoryBot.define do
     prefecture_id { '2' }
     scheduled_delivery_id { '2' }
     price { '20000' }
-    
+    images { Rack::Test::UploadedFile.new(File.join(Rails.root, 'public/images/test_image.png')) }
   end
 end
