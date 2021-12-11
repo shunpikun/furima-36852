@@ -1,5 +1,6 @@
 class ItemForm
   include ActiveModel::Model
+
   #ItemFormクラスのオブジェクトがItemモデルの属性を扱えるようにする
   attr_accessor(
     :name, :info, :category_id, :condition_id, :delivery_fee_id, :prefecture_id, :scheduled_delivery_id, :price, :images, :user_id,
@@ -8,7 +9,7 @@ class ItemForm
   )
 
   with_options presence: true do
-    validates :images
+    validates :images, length: { minimum: 1, maximum: 5, message: "は1枚以上5枚以下にしてください" }
     validates :name
     validates :info
     validates :price
