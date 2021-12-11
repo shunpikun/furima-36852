@@ -5,6 +5,10 @@ RSpec.describe ItemForm, type: :model do
     before do
       @user = FactoryBot.build(:user)
       @item_form = FactoryBot.build(:item_form)
+      # 3.times do
+      #   @item_form.images.attach(io: File.open("public/images/test_image.png"), filename: 'test_image.png')
+      # end
+      @item_form.images = fixture_file_upload('public/images/test_image.png')
     end
 
     context '内容に問題がない場合' do

@@ -1,15 +1,12 @@
 class ItemForm
   include ActiveModel::Model
-  extend CarrierWave::Mount
+
   #ItemFormクラスのオブジェクトがItemモデルの属性を扱えるようにする
   attr_accessor(
     :name, :info, :category_id, :condition_id, :delivery_fee_id, :prefecture_id, :scheduled_delivery_id, :price, :images, :user_id,
     :id, :created_at, :datetime, :updated_at, :datetime,
     :tag_name
   )
-
-  mount_uploader :images, ImageUploader
-
 
   with_options presence: true do
     validates :images, length: { minimum: 1, maximum: 5, message: "は1枚以上5枚以下にしてください" }
