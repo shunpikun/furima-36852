@@ -53,6 +53,8 @@ class ItemsController < ApplicationController
   end
 
   def search
+    @q = Item.ransack(params[:q])
+    @items = @q.result
     return nil if params[:keyword] == ""
     tag = Tag.where(['tag_name LIKE ?', "%#{params[:keyword]}%"] )
     render json:{ keyword: tag }
