@@ -1,6 +1,7 @@
-<%= render "shared/header" %>
-<h3>検索ページ</h3>
-<h3><%= link_to 'トップページへ戻る', root_path%></h3>
+<%= render "shared/second-header"%>
+
+<h3 class="top">検索ページ</h3>
+<h3 class="sub-top"><%= link_to 'トップページへ戻る', root_path%></h3>
 <div class='item-contents' id="detailed-search-result-wrapper">
   <%= search_form_for @q, url: items_look_path, html: {id: "detailed-search-form"} do |f| %>
     <div class="search-field">
@@ -18,6 +19,10 @@
       <br>
       <%= f.collection_check_boxes(:category_id_in, Category.all, :id, :name, {include_blank: "---"}) %>
     </div>
+     <div class="search-field">
+      <%= f.label :condition_id_in, '商品の状態' %>
+      <br>
+      <%= f.collection_check_boxes(:condition_id_in, Condition.all, :id, :name, {include_blank: "---"}) %>
     <div class="search-field">
       <%= f.label :price_gteq, '価格'%>
       <br>
@@ -39,3 +44,5 @@
     <% end %>
   </ul>
 </div>
+
+<%= render "shared/second-footer"%>

@@ -1,0 +1,15 @@
+.top {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.sub-top {
+  text-align: center;
+  font-size: 18px;
+}
+
+.search-field {
+  text-align: center;
+  font-weight: bold;
+}
