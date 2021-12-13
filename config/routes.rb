@@ -4,11 +4,14 @@ Rails.application.routes.draw do
   get 'items/index'
   devise_for :users
   root to: "items#index"
+  get 'items/look' do
+    get 'items/look'
+  end
   resources :items do
+    resources :orders, only: [:index, :create]
     collection do
       get 'search'
     end
-    resources :orders, only: [:index, :create]
   end
   resources :users, only: [:show]
   resources :cards, only: [:new, :create]

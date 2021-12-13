@@ -48,4 +48,9 @@ class ItemForm
     item.update(params)
     ItemTagRelation.create(item_id: item.id, tag_id: tag.id) if tag_name.present? 
   end
+
+  def self.search(search)
+    @q = Item.ransack(params[:q])
+    @items = @q.result
+  end
 end
