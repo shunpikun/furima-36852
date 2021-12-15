@@ -17,10 +17,10 @@ class ItemForm
 
   validates :price, numericality: {in: (300..9999999), message: 'は¥300~¥9,999,999の範囲内で入力してください'}
   validates :price, numericality: { with: /\A[0-9]+\z/, message: 'は半角数値で入力してください' }
+  validates :category_id, numericality: { message: "を選択してください" }
+  validates :condition_id, numericality: { message: "を選択してください" }
 
   with_options numericality: { other_than: 1, message: "を選択してください" } do
-    validates :category_id
-    validates :condition_id
     validates :delivery_fee_id
     validates :prefecture_id
     validates :scheduled_delivery_id
@@ -47,10 +47,5 @@ class ItemForm
     tag.save if tag_name.present?
     item.update(params)
     ItemTagRelation.create(item_id: item.id, tag_id: tag.id) if tag_name.present? 
-  end
-
-  def self.search(search)
-    @q = Item.ransack(params[:q])
-    @items = @q.result
   end
 end

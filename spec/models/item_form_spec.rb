@@ -3,11 +3,8 @@ require 'rails_helper'
 RSpec.describe ItemForm, type: :model do
   describe '出品情報の登録' do
     before do
-      @user = FactoryBot.build(:user)
-      @item_form = FactoryBot.build(:item_form)
-      # 3.times do
-      #   @item_form.images.attach(io: File.open("public/images/test_image.png"), filename: 'test_image.png')
-      # end
+      @user = FactoryBot.create(:user)
+      @item_form = FactoryBot.build(:item_form, user_id: @user.id)
       @item_form.images = fixture_file_upload('public/images/test_image.png')
     end
 
@@ -36,22 +33,14 @@ RSpec.describe ItemForm, type: :model do
         expect(@item_form.errors.full_messages).to include("画像を入力してください")
       end
 
-      it 'imagesが6枚以上だと登録できないこと' do
-        6.times do
-          @item_form = create(:item_form, images: [images])
-        end
-        @item_form.valid?
-        expect(@item_form.errors[:images]).to include('画像は1枚以上5枚以下にしてください')
-      end
-
       it 'categoryが空では登録できないこと' do
-        @item_form.category_id = '1'
+        @item_form.category_id = nil
         @item_form.valid?
         expect(@item_form.errors.full_messages).to include("カテゴリーを選択してください")
       end
 
       it 'conditionが空では登録できないこと' do
-        @item_form.condition_id = '1'
+        @item_form.condition_id = nil
         @item_form.valid?
         expect(@item_form.errors.full_messages).to include("商品の状態を選択してください")
       end
