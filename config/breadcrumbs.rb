@@ -2,35 +2,51 @@ crumb :root do
   link "Home", root_path
 end
 
-crumb :items do
-  link "出品ページ", new_item_path
+crumb :item_new do
+  link "出品画面", new_item_path
   parent :root
 end
 
-crumb :show do
-  link "商品詳細ページ", items_path(item.id)
+crumb :item_show do |item|
+  link "#{item.name}の詳細画面", item_path(item)
   parent :root
 end
 
-crumb :edit do
-  link "商品編集ページ", edit_item_path
-  parent :items
+crumb :item_edit do |item|
+  link "商品編集画面"
+  parent :item_show, item
 end
 
-crumb :cards do
+crumb :card_new do
   link "クレジットカード情報登録画面", new_card_path
   parent :root
 end
 
-crumb :users do
-  link "新規ユーザー登録画面", new_user_path
+crumb :user_new do
+  link "ログイン画面", user_session_path
   parent :root
 end
 
-crumb :users do
-  link "ログイン画面", new_user_registration_path
+crumb :user_registration do
+  link "ユーザー登録画面", user_registration_path
   parent :root
 end
+
+crumb :order_new do |item|
+  link "商品購入画面"
+  parent :item_show, item
+end
+
+crumb :look_new do
+  link "商品検索画面", items_look_path
+  parent :root
+end
+
+crumb :user_show do |user|
+  link "#{user.nickname}さんのクレジットカード詳細画面", user_path(user)
+  parent :root
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
