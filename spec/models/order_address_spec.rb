@@ -27,7 +27,7 @@ RSpec.describe OrderAddress, type: :model do
       it 'postal_codeが空だと保存できないこと' do
         @order_address.postal_code = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("郵便番号を入力してください")
+        expect(@order_address.errors.full_messages).to include('郵便番号を入力してください')
       end
 
       it 'postal_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
@@ -39,25 +39,25 @@ RSpec.describe OrderAddress, type: :model do
       it 'prefecture_idが空だと保存できないこと' do
         @order_address.prefecture_id = '1'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("都道府県を選択してください")
+        expect(@order_address.errors.full_messages).to include('都道府県を選択してください')
       end
 
       it 'cityが空では保存できないこと' do
         @order_address.city = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("市区町村を入力してください")
+        expect(@order_address.errors.full_messages).to include('市区町村を入力してください')
       end
 
       it 'house_numbreが空では保存できないこと' do
         @order_address.house_number = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("番地を入力してください")
+        expect(@order_address.errors.full_messages).to include('番地を入力してください')
       end
 
       it 'phone_numberが空では保存できないこと' do
         @order_address.phone_number = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("電話番号を入力してください")
+        expect(@order_address.errors.full_messages).to include('電話番号を入力してください')
       end
 
       it 'phone_numberが10桁以上11桁以内でないと保存できないこと' do
@@ -81,13 +81,13 @@ RSpec.describe OrderAddress, type: :model do
       it 'user_idが空では保存できないこと' do
         @order_address.user_id = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Userを入力してください")
+        expect(@order_address.errors.full_messages).to include('Userを入力してください')
       end
 
       it 'item_idが空では保存できないこと' do
         @order_address.item_id = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Itemを入力してください")
+        expect(@order_address.errors.full_messages).to include('Itemを入力してください')
       end
     end
   end

@@ -53,9 +53,10 @@ class ItemsController < ApplicationController
   end
 
   def search
-    return nil if params[:keyword] == ""
-    tag = Tag.where(['tag_name LIKE ?', "%#{params[:keyword]}%"] )
-    render json:{ keyword: tag }
+    return nil if params[:keyword] == ''
+
+    tag = Tag.where(['tag_name LIKE ?', "%#{params[:keyword]}%"])
+    render json: { keyword: tag }
   end
 
   def look
@@ -65,7 +66,7 @@ class ItemsController < ApplicationController
       # squishメソッドで余分なスペースを削除する
       squished_keywords = params[:q][:name].squish
       ## 半角スペースを区切り文字として配列を生成し、paramsに入れる
-      params[:q][:name_cont_any] = squished_keywords.split(" ")
+      params[:q][:name_cont_any] = squished_keywords.split(' ')
     end
     @q = Item.ransack(params[:q])
     @items = @q.result
@@ -75,7 +76,7 @@ class ItemsController < ApplicationController
 
   def item_form_params
     params.require(:item_form).permit(:name, :info, :category_id, :condition_id, :delivery_fee_id, :prefecture_id,
-                                 :scheduled_delivery_id, :price, :tag_name, {images: []}).merge(user_id: current_user.id)
+                                      :scheduled_delivery_id, :price, :tag_name, { images: [] }).merge(user_id: current_user.id)
   end
 
   def set_item

@@ -1,7 +1,8 @@
 <%= render "shared/second-header"%>
+<% breadcrumb :look_new %>
 
 <h3 class="top">検索ページ</h3>
-<h3 class="sub-top"><%= link_to 'トップページへ戻る', root_path%></h3>
+<h3 class="sub-top"><%= link_to 'トップページへ戻る', root_path %></h3>
 <div class='item-contents' id="detailed-search-result-wrapper">
   <%= search_form_for @q, url: items_look_path, html: {id: "detailed-search-form"} do |f| %>
     <div class="search-field">
