@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"] # 環境変数を読み込む
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY'] # 環境変数を読み込む
     card = Card.find_by(user_id: current_user.id) # ユーザーのid情報を元に、カード情報を取得
 
     redirect_to new_card_path and return unless card.present?

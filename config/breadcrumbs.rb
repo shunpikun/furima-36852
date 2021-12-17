@@ -33,7 +33,7 @@ crumb :user_registration do
 end
 
 crumb :order_new do |item|
-  link "商品購入画面"
+  link "#{item.name}の購入画面"
   parent :item_show, item
 end
 

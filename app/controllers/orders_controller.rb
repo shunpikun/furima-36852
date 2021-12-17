@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
       @order_address.save
       redirect_to root_path
     else
-    render :index
+      render :index
     end
   end
 
@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
   def pay_item
     redirect_to new_card_path and return unless current_user.card.present?
 
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"] # 環境変数を読み込む
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY'] # 環境変数を読み込む
     customer_token = current_user.card.customer_token # ログインしているユーザーの顧客トークンを定義
     Payjp::Charge.create(
       amount: @item.price, # 商品の値段
