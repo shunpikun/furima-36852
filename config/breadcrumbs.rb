@@ -13,7 +13,7 @@ crumb :item_show do |item|
 end
 
 crumb :item_edit do |item|
-  link "商品編集画面"
+  link "#{item.name}の編集画面"
   parent :item_show, item
 end
 
