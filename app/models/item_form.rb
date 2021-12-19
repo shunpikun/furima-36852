@@ -3,7 +3,7 @@ class ItemForm
 
   # ItemFormクラスのオブジェクトがItemモデルの属性を扱えるようにする
   attr_accessor(
-    :name, :info, :category_id, :condition_id, :delivery_fee_id, :prefecture_id, :scheduled_delivery_id, :price, :images, :user_id,
+    :name, :info, :category_id, :condition_id, :delivery_fee_id, :prefecture_id, :scheduled_delivery_id, :price, :user_id, :images, 
     :id, :created_at, :datetime, :updated_at, :datetime,
     :tag_name
   )
@@ -13,9 +13,10 @@ class ItemForm
     validates :name
     validates :info
     validates :price
+    validates :user_id
   end
 
-  validates :price, numericality: { in: (300..9_999_999), message: 'は¥300~¥9,999,999の範囲内で入力してください' }
+  validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9_999_999, message: 'は¥300~¥9,999,999の範囲内で入力してください' }
   validates :price, numericality: { with: /\A[0-9]+\z/, message: 'は半角数値で入力してください' }
   validates :category_id, numericality: { message: 'を選択してください' }
   validates :condition_id, numericality: { message: 'を選択してください' }

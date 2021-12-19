@@ -4,9 +4,9 @@ RSpec.describe OrderAddress, type: :model do
   describe '商品購入情報の保存' do
     before do
       @user = FactoryBot.create(:user)
-      @item_form = FactoryBot.build(:item_form)
-      @item_form.images = fixture_file_upload('public/images/test_image.png')
-      @item_form.save
+      @item = FactoryBot.build(:item_form)
+      @item.images = fixture_file_upload("/files/test_image.png")
+      @item.save
       @order_address = FactoryBot.build(:order_address, user_id: @user.id, item_id: @item.id)
       sleep 0.1
     end
