@@ -5,11 +5,17 @@ RSpec.describe ItemForm, type: :model do
     before do
       @user = FactoryBot.create(:user)
       @item_form = FactoryBot.build(:item_form, user_id: @user.id)
-      @item_form.images = fixture_file_upload("/files/test_image.png")
+      @item_form.images = [fixture_file_upload("/files/test_image.png")]
     end
 
     context '内容に問題がない場合' do
       it 'すべての値が正しく入力されていれば保存できること' do
+        expect(@item_form).to be_valid
+      end
+
+      it 'タグが空でも登録できること' do
+        @item_form.tag_name = ''
+        @item_form.valid?
         expect(@item_form).to be_valid
       end
     end
