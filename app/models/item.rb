@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   has_many_attached :images
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_one :order
   belongs_to :user
   has_many :item_tag_relations, dependent: :destroy
