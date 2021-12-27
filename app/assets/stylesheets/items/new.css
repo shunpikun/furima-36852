@@ -127,6 +127,12 @@
   margin: 2vh 0;
 }
 
+.tag-input {
+  height: 30px;
+  text-align: right;
+  padding-right: 10px;
+}
+
 /* /商品の詳細など */
 
 /* 販売価格 */

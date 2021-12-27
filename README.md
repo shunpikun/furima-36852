@@ -17,6 +17,7 @@
 
 - has_many :items
 - has_many :orders
+- has_many :comments
 - has_one :card
 
 ## items テーブル
@@ -39,6 +40,7 @@
 - has_one :order
 - has_many :item_tag_relations
 - has_many :tags, through: :post_tag_relations
+- has_many :comments
 
 ## orders テーブル
 
@@ -103,4 +105,15 @@
 - has_many :item_tag_relations
 - has_many :items, through: :item_tag_relations
 
+## comments テーブル
 
+| Column    | Type    | Options                        |
+| --------- | ------- | ------------------------------ |
+| user_id   | integer |                                |
+| item_id   | integer |                                |
+| text      | text    |                                |
+
+## Association
+
+- belongs_to :item
+- belongs_to :user
